@@ -1,7 +1,7 @@
-# Tokio Experiments
-Small experiments in writing Rust programs using the [Tokio](https://tokio.rs) asynchronous runtime.  Clone the repository and use `cargo run` with the `-p <crate name>` flag to run one of programs.
+# Concurrency Experiments
+Small experiments in writing parallel, concurrent, and asynchronous Rust programs.  Clone the repository and use `cargo run` with the `-p <crate name>` flag to run one of programs.
 
-+ [REPLACEME](https://github.com/keithsharp/tokio-experiments/tree/main/REPLACEME) - Description string goes here.
++ [REPLACEME](https://github.com/keithsharp/concurrency-experiments/tree/main/REPLACEME) - Description string goes here.
 
 # Copyright and License
 Copyright 2022, Keith Sharp, kms@passback.co.uk.
