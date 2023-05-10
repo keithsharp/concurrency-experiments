@@ -8,5 +8,6 @@ edition = "2021"
 
 [dependencies]
 anyhow.workspace = true
+bytes = "1"
 mini-redis = "0.4"
 tokio.workspace = true
