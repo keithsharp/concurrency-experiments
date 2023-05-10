@@ -1,3 +1,6 @@
+use std::collections::HashMap;
+
+use mini_redis::Command::{self, Get, Set};
 use mini_redis::{Connection, Frame};
 use tokio::net::{TcpListener, TcpStream};
 
@@ -16,19 +19,34 @@ async fn main() -> anyhow::Result<()> {
 }
 
 async fn process(socket: TcpStream) {
-    let mut connection = Connection::new(socket);
+    let mut db = HashMap::new();
 
-    match connection.read_frame().await {
-        Ok(frame) => {
-            println!("FRAME: {:?}", frame);
-            match connection
-                .write_frame(&Frame::Error("Unimplemented".to_string()))
-                .await
-            {
-                Ok(_) => (),
-                Err(e) => eprintln!("{}", e),
+    let mut connection = Connection::new(socket);
+    while let Some(frame) = connection
+        .read_frame()
+        .await
+        .expect("should always be able to read a frame")
+    {
+        let response = match Command::from_frame(frame)
+            .expect("should always be able to get a command from a frame")
+        {
+            Set(cmd) => {
+                db.insert(cmd.key().to_string(), cmd.value().to_vec());
+                Frame::Simple("OK".to_string())
             }
-        }
-        Err(e) => eprintln!("{}", e),
+            Get(cmd) => {
+                if let Some(value) = db.get(cmd.key()) {
+                    Frame::Bulk(value.clone().into())
+                } else {
+                    Frame::Null
+                }
+            }
+            cmd => panic!("Command  '{:?}' is not implemented", cmd),
+        };
+
+        connection
+            .write_frame(&response)
+            .await
+            .expect("should always be able to write response frame");
     }
 }
