@@ -11,6 +11,8 @@ type Db = Arc<Mutex<HashMap<String, Bytes>>>;
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
     let db = Arc::new(Mutex::new(HashMap::new()));
+
+    println!("Listening on '127.0.0.1:6379");
     let listener = TcpListener::bind("127.0.0.1:6379").await?;
 
     loop {
