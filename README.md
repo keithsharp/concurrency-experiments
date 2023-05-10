@@ -1,7 +1,7 @@
 # Concurrency Experiments
 Small experiments in writing parallel, concurrent, and asynchronous Rust programs.  Clone the repository and use `cargo run` with the `-p <crate name>` flag to run one of programs.
 
-+ [REPLACEME](https://github.com/keithsharp/concurrency-experiments/tree/main/REPLACEME) - Description string goes here.
++ [Tokio Tutorial](https://github.com/keithsharp/concurrency-experiments/tree/main/tokio-tutorial) - Working through the [Tokio tutorial](https://tokio.rs/tokio/tutorial).
 
 # Copyright and License
 Copyright 2022, Keith Sharp, kms@passback.co.uk.

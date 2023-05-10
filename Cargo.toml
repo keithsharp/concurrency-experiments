@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    
+    "tokio-tutorial",
 ]
 
 [workspace.dependencies]

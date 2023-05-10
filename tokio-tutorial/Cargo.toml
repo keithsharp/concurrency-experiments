@@ -1,0 +1,11 @@
+[package]
+name = "tokio-tutorial"
+authors = ["Keith Sharp <kms@passback.co.uk"]
+description = "Working through the Tokio tutorial."
+license = "AGPL-3.0-or-later"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+mini-redis = "0.4"
+tokio.workspace = true
