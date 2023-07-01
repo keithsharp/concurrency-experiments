@@ -2,6 +2,7 @@
 Small experiments in writing parallel, concurrent, and asynchronous Rust programs.  Clone the repository and use `cargo run` with the `-p <crate name>` flag to run one of programs.
 
 + [MPSC Oneshot](https://github.com/keithsharp/concurrency-experiments/tree/main/mpsc-oneshot) - Communicating between [Tasks](https://docs.rs/tokio/latest/tokio/task/index.html) with [Tokio MPSC and Oneshot channels](https://docs.rs/tokio/latest/tokio/sync/index.html).
++ [Events and Tasks](https://github.com/keithsharp/concurrency-experiments/tree/main/events-tasks) - Combining events and long running tasks.
 + [Tokio Tutorial](https://github.com/keithsharp/concurrency-experiments/tree/main/tokio-tutorial) - Working through the [Tokio tutorial](https://tokio.rs/tokio/tutorial).
 
 # Copyright and License
